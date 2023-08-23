@@ -611,6 +611,9 @@ export abstract class QueryBuilder<Entity extends ObjectLiteral> {
             alias,
             options: options || {},
         })
+        if (typeof queryBuilder !== "string") {
+            this.setParameters(queryBuilder.getParameters())
+        }
         return this
     }
 
